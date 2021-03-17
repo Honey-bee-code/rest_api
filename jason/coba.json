@@ -1,0 +1,24 @@
+[
+  {
+    "nama": "Fahad Far'i",
+    "umur": 25,
+    "nrp": "0876562662",
+    "lulus": true,
+    "hobi": ["coding", "gaming"],
+    "pembimbing": {
+      "pembimbing1": "H. Lalu Nurul Bayanil Huda",
+      "pembimbing2": "H. M. Ridwan"
+    }
+  },
+  {
+    "nama": "Yusron Vanani",
+    "umur": 24,
+    "nrp": "0876560872",
+    "lulus": true,
+    "hobi": ["traveling", "gaming"],
+    "pembimbing": {
+      "pembimbing1": "H. Munawir",
+      "pembimbing2": "H. Sidqi Abbas"
+    }
+  }
+]
