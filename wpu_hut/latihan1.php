@@ -26,7 +26,11 @@ function indo_currency($value){
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link active" aria-current="page" href="#">All Menu</a>
+        <a class="nav-link active" aria-current="page" href="#">Pizza</a>
+        <a class="nav-link active" aria-current="page" href="#">Pasta</a>
+        <a class="nav-link active" aria-current="page" href="#">Nasi</a>
+        <a class="nav-link active" aria-current="page" href="#">Minuman</a>
       </div>
       </div>
     </div>
@@ -46,6 +50,7 @@ function indo_currency($value){
           <img src="img/menu/<?=$row['gambar']?>" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title"><?=$row['nama']?></h5>
+            <h6 class="card-title">Kategori : <?=$row['kategori']?></h6>
             <p class="card-text"><?=$row['deskripsi']?></p>
             <h5><?=indo_currency($row['harga'])?>,-</h5>
             <a href="#" class="btn btn-primary">Pesan Sekarang!</a>
