@@ -16,7 +16,7 @@ function searchMovie() {
         console.log(movies);
         $.each(movies, function (i, d) {
           $("#ml").append(`
-            <div class="col-md-3">
+            <div class="col-md-3" style="margin-bottom: 25px">
                 <div class="card">
                     <img src="` +d.Poster +`" class="card-img-top" alt="poster">
                     <div class="card-body">
