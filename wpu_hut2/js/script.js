@@ -25,15 +25,16 @@ allMenu();
 $(".nav-link").on("click", function () {
   $(".nav-link").removeClass("active");
   $(this).addClass("active");
+  $("#daftar-menu").html(''); // harus dikosongkan dulu
 
   let kategori = $(this).html();
   //   console.log(kategori);
   $("h1").html(kategori);
-//   if (kategori == "All Menu") {
+  if (kategori == "All Menu") {
     
-//     allMenu();
-//     return;
-//   }
+    allMenu();
+    return;
+  }
 
   $.getJSON("data/pizza.json", function (hasil) {
     let menu = hasil.menu;
