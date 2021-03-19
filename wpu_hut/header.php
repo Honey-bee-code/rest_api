@@ -26,11 +26,11 @@ function indo_currency($value){
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="latihan1.php">All Menu</a>
-        <a class="nav-link active" aria-current="page" href="pizza.php">Pizza</a>
-        <a class="nav-link active" aria-current="page" href="pasta.php">Pasta</a>
-        <a class="nav-link active" aria-current="page" href="nasi.php">Nasi</a>
-        <a class="nav-link active" aria-current="page" href="minuman.php">Minuman</a>
+        <a class="nav-link " href="index.php">All Menu</a>
+        <a class="nav-link " href="pizza.php">Pizza</a>
+        <a class="nav-link " href="pasta.php">Pasta</a>
+        <a class="nav-link " href="nasi.php">Nasi</a>
+        <a class="nav-link " href="minuman.php">Minuman</a>
       </div>
       </div>
     </div>
