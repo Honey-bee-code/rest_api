@@ -15,9 +15,9 @@
     color: white;
     opacity: 0.7;
   }
-  
+
   .jumbotron {
-      background-image: url(img/me3.jpg) !important;
+    background-image: url(img/me3.jpg) !important;
   }
   /* .jumbotron::after {
     content: "";
@@ -29,7 +29,6 @@
     background-image: linear-gradient(to bottom, rgb(0, 81, 255), rgba(0, 0, 0, 0));
   } */
 }
-
 
 .navbar-brand {
   padding: 10px;
@@ -48,11 +47,11 @@
   box-shadow: 2px 2px 3px black;
 }
 .nav-link:hover {
-  background-color: rgb(141, 170, 232);
+  background-color: rgb(153, 153, 153);
   box-shadow: none;
 }
 .active {
-  background-color: rgb(62, 119, 242) !important ;
+  background-color: rgb(58, 58, 60) !important ;
   box-shadow: none !important;
   color: white !important;
 }
@@ -62,8 +61,10 @@
   background-image: url(img/me2.jpg);
   background-size: cover;
   padding-top: 6rem;
+  height: 680px;
 }
-.jumbotron h1, .jumbotron p {
+.jumbotron h1,
+.jumbotron p {
   text-shadow: 3px 3px 5px rgb(0, 0, 0);
 }
 .jumbotron .container,
@@ -72,13 +73,30 @@
   z-index: 1000;
 }
 
-#gallery, #contact {
-  background-color: #63a0da;
+#about,
+#gallery,
+#contact {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#about {
+  height: 680px;
 }
 section {
   padding-top: 5rem;
 }
 .navbar-toggler {
-    background-color: white;
-    opacity: 0.5;
+  background-color: white;
+  opacity: 0.5;
+}
+.ig-thumbnail {
+  width: 150px;
+  height: 150px;
+  float: left;
+  overflow: hidden;
+}
+.ig-thumbnail img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 5px;
 }
