@@ -1,5 +1,38 @@
 <?php
-$curl = curl_init();
+function get_curl($url){
+  $curl = curl_init();
+  // $part = 'snippet,statistics';
+  // $id = 'UCT7692E2GX2XjRHjPd7kvTw';
+  // $key = 'AIzaSyDMAoVo3KOqqh-tx-QDqbD6vsy1MGVMGYk';
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // true jika ingin data kembalian berbentuk teks
+  $result = curl_exec($curl);
+  curl_close($curl);
+  
+  return json_decode($result, true);
+}
+$details = 'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCT7692E2GX2XjRHjPd7kvTw&key=AIzaSyDMAoVo3KOqqh-tx-QDqbD6vsy1MGVMGYk';
+
+$result = get_curl($details);
+$ytprofilepic = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+$namaChanel = $result['items'][0]['snippet']['title'];
+$subscribers = $result['items'][0]['statistics']['subscriberCount'];
+$views = $result['items'][0]['statistics']['viewCount'];
+$videos = $result['items'][0]['statistics']['videoCount'];
+
+//latest video url
+$lvideo1 = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyDMAoVo3KOqqh-tx-QDqbD6vsy1MGVMGYk&channelId=UCT7692E2GX2XjRHjPd7kvTw&maxResults=1&order=viewCount';
+$lvideo2 = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyDMAoVo3KOqqh-tx-QDqbD6vsy1MGVMGYk&channelId=UCT7692E2GX2XjRHjPd7kvTw&maxResults=1&order=date';
+$result1 = get_curl($lvideo1);
+$result2 = get_curl($lvideo2);
+$vid1 = $result1['items'][0]['id']['videoId'];
+$vid2 = $result2['items'][0]['id']['videoId'];
+
+$url = 'https://www.instagram.com/p/CEEtDvtFMV0/';
+$ig ='https://graph.facebook.com/v10.0/instagram_oembed?access_token=EAAQgfhjNZCOIBAKpNXgZCpyhDJvFRSSLhJucP0xCUzPzsCfqyUUrVqNi7OhUZCeePsNpgxOlHFyM30y2bLIf6NoeAkf0jj92T8PQnUw9npOdoRu5tKGxjBNN3ga0EfyqQ6RU0P1lOnL2JIiMqUKdD2m1fuJ3HfXPW9pGoExlO3d4GSOsXikcSZAIRwi74sui5f57gJofZB6GfauKMx58AnQBZBO6GxgAxHyscfaAcFRUulGfz72eY2&url='.$url;
+$result3 = get_curl($ig);
+$igpost = $result3['html'];
+
 
 
 ?>
@@ -109,42 +142,38 @@ $curl = curl_init();
           <div class="col-md-5">
             <div class="row align-items-center">
               <div class="col-md-4">
-                <img src="img/me2.jpg" style="height: 150px; width: 150px; object-fit: cover; " class="rounded-circle" alt="">
+                <img src="<?=$ytprofilepic?>" style="height: 150px; width: 150px; object-fit: cover; " class="rounded-circle" alt="">
               </div>
               <div class="col-md-8">
-                <h5>Kaligrafi Lombok</h5>
-                <p>1000 Subscribers</p>
+                <h5><?=$namaChanel?></h5>
+                <span><b><?=$subscribers?></b> Subscribers</span><br>
+                <span><b><?=$views?></b> Views</span><br>
+                <span><b><?=$videos?></b> Videos</span><br>
+                <script src="https://apis.google.com/js/platform.js"></script>
+                <div class="g-ytsubscribe" data-channelid="UCT7692E2GX2XjRHjPd7kvTw" data-layout="default" data-count="default"></div>
               </div>
             </div>
             <div class="row mt-3 pb-3">
               <div class="col">
+                <span>Most Popular Videos </span>
                 <div class="ratio ratio-16x9">
-                  <iframe src="https://www.youtube.com/embed/Wk3mx3oM3UE?rel=0" title="YouTube video" allowfullscreen></iframe>
+                  <iframe src="https://www.youtube.com/embed/<?=$vid1?>?rel=0" title="YouTube video" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3 pb-3">
+              <div class="col">
+                <span>Latest Videos</span>
+                <div class="ratio ratio-16x9">
+                  <iframe src="https://www.youtube.com/embed/<?=$vid2?>?rel=0" title="YouTube video" allowfullscreen></iframe>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-5">
-            <div class="row align-items-center">
-              <div class="col-md-4">
-                <img src="img/me2.jpg" style="height: 150px; width: 150px; object-fit: cover; " class="rounded-circle" alt="">
-              </div>
-              <div class="col-md-8">
-                <h5>@kaligrafi_lombok</h5>
-                <p>1000 Followers</p>
-              </div>
-            </div>
             <div class="row mt-3 pb-3">
               <div class="col">
-                <div class="ig-thumbnail">
-                  <img src="img/gallery/1.jpg" alt="">
-                </div>
-                <div class="ig-thumbnail">
-                  <img src="img/gallery/2.jpg" alt="">
-                </div>
-                <div class="ig-thumbnail">
-                  <img src="img/gallery/3.jpg" alt="">
-                </div>
+                <?=$igpost?>
               </div>
             </div>
           </div>
