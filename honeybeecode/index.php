@@ -1,9 +1,6 @@
 <?php
 function get_curl($url){
   $curl = curl_init();
-  // $part = 'snippet,statistics';
-  // $id = 'UCT7692E2GX2XjRHjPd7kvTw';
-  // $key = 'AIzaSyDMAoVo3KOqqh-tx-QDqbD6vsy1MGVMGYk';
   curl_setopt($curl, CURLOPT_URL, $url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // true jika ingin data kembalian berbentuk teks
   $result = curl_exec($curl);
@@ -11,6 +8,8 @@ function get_curl($url){
   
   return json_decode($result, true);
 }
+
+// youtube
 $details = 'https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCT7692E2GX2XjRHjPd7kvTw&key=AIzaSyDMAoVo3KOqqh-tx-QDqbD6vsy1MGVMGYk';
 
 $result = get_curl($details);
@@ -28,6 +27,8 @@ $result2 = get_curl($lvideo2);
 $vid1 = $result1['items'][0]['id']['videoId'];
 $vid2 = $result2['items'][0]['id']['videoId'];
 
+
+// instagram
 $url = 'https://www.instagram.com/p/CEEtDvtFMV0/';
 $token = 'EAAQgfhjNZCOIBAPzQ8O5ZBvnwLqiZBlvudLXDiGWgQxLv08vWYe5bPCMIHp1ZBvKAveMAmhZCEEKFYli0GDKsb0aREYECQi2kKhc9SCWvsTHwdOhSBgcCS6L6kP30tc8TqZBJhwWsvY1tsVP9QeZCydzR2SCV61TIZB52rBSAZCJDbQZDZD';
 $tokenApp = '1161625860963554|js1JG1Hrn-Z_9yBubnjX5lpMx0I';
