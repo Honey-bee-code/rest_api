@@ -29,7 +29,9 @@ $vid1 = $result1['items'][0]['id']['videoId'];
 $vid2 = $result2['items'][0]['id']['videoId'];
 
 $url = 'https://www.instagram.com/p/CEEtDvtFMV0/';
-$ig ='https://graph.facebook.com/v10.0/instagram_oembed?access_token=EAAQgfhjNZCOIBAKpNXgZCpyhDJvFRSSLhJucP0xCUzPzsCfqyUUrVqNi7OhUZCeePsNpgxOlHFyM30y2bLIf6NoeAkf0jj92T8PQnUw9npOdoRu5tKGxjBNN3ga0EfyqQ6RU0P1lOnL2JIiMqUKdD2m1fuJ3HfXPW9pGoExlO3d4GSOsXikcSZAIRwi74sui5f57gJofZB6GfauKMx58AnQBZBO6GxgAxHyscfaAcFRUulGfz72eY2&url='.$url;
+$token = 'EAAQgfhjNZCOIBAPzQ8O5ZBvnwLqiZBlvudLXDiGWgQxLv08vWYe5bPCMIHp1ZBvKAveMAmhZCEEKFYli0GDKsb0aREYECQi2kKhc9SCWvsTHwdOhSBgcCS6L6kP30tc8TqZBJhwWsvY1tsVP9QeZCydzR2SCV61TIZB52rBSAZCJDbQZDZD';
+$tokenApp = '1161625860963554|js1JG1Hrn-Z_9yBubnjX5lpMx0I';
+$ig ='https://graph.facebook.com/v10.0/instagram_oembed?access_token='.$tokenApp.'&url='.$url;
 $result3 = get_curl($ig);
 $igpost = $result3['html'];
 
